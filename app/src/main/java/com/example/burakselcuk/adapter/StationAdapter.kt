@@ -7,15 +7,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.burakselcuk.R
 import com.example.burakselcuk.model.ship
+import kotlinx.android.synthetic.main.ship_item.view.*
 
 
 class StationAdapter(private val dataSet: ship) :
     RecyclerView.Adapter<StationAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val stationName: TextView
         val capacity: TextView
