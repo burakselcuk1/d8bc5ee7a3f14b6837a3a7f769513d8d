@@ -25,11 +25,7 @@ class StationFragmentViewModel @Inject constructor(private val repository: shipR
             _shipes.postValue(response.body())
         }else{
             Log.e("Brk:StationViewModel","error")
-
         }
-
-
         }
     }
-
 }
