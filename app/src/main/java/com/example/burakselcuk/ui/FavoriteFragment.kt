@@ -6,16 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.burakselcuk.R
+import com.example.burakselcuk.adapter.FavoriteAdapter
 import com.example.burakselcuk.model.shipItem
 import com.example.burakselcuk.viewModel.FavoriteFragmentViewModel
+import kotlinx.android.synthetic.main.fragment_favorite.*
 
 
 class FavoriteFragment : Fragment() {
 
     private lateinit var viewModel: FavoriteFragmentViewModel
     private lateinit var singleStationData: shipItem
+    private lateinit var adapter:FavoriteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,5 +54,12 @@ class FavoriteFragment : Fragment() {
                 Toast.makeText(requireContext(),"error",Toast.LENGTH_SHORT).show()
             }
         }
+
+        viewModel.readAllData.observe(this, Observer {
+            favoriteRecyclerview.layoutManager = LinearLayoutManager(context)
+            adapter = FavoriteAdapter(it as ArrayList<shipItem>)
+            favoriteRecyclerview.adapter = adapter
+
+        })
     }
 }
