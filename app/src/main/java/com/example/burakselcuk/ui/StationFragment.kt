@@ -49,6 +49,5 @@ class StationFragment : Fragment() {
             val navigationController = Navigation.findNavController(it)
             navigationController.navigate(R.id.action_stationFragment_to_searchFragment)
         }
-
-
-}}
+}
+}
