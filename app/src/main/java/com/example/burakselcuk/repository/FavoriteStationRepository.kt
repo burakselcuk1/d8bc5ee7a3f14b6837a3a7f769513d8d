@@ -11,5 +11,4 @@ class FavoriteStationRepository @Inject constructor(private val dao:FavoriteDao)
     suspend fun insertStation(station: shipItem)=dao.insertStation(station)
     suspend fun deleteStation(station: shipItem)=dao.deleteStation(station)
     val readAllData: LiveData<List<shipItem>> = dao.getAllStation()
-
 }
