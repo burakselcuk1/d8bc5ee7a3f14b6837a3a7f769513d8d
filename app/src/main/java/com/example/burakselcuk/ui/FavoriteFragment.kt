@@ -14,12 +14,14 @@ import com.example.burakselcuk.adapter.FavoriteAdapter
 import com.example.burakselcuk.model.shipItem
 import com.example.burakselcuk.viewModel.FavoriteFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_favorite.*
+import kotlinx.android.synthetic.main.room_item.*
 
 
 class FavoriteFragment : Fragment() {
 
     private lateinit var viewModel: FavoriteFragmentViewModel
     private lateinit var singleStationData: shipItem
+    private lateinit var singleStationDataForDelete: shipItem
     private lateinit var adapter:FavoriteAdapter
 
     override fun onCreateView(
@@ -50,6 +52,7 @@ class FavoriteFragment : Fragment() {
 
                 viewModel.addStation(saveStation)
 
+
             }else {
                 Toast.makeText(requireContext(),"error",Toast.LENGTH_SHORT).show()
             }
@@ -59,7 +62,7 @@ class FavoriteFragment : Fragment() {
             favoriteRecyclerview.layoutManager = LinearLayoutManager(context)
             adapter = FavoriteAdapter(it as ArrayList<shipItem>)
             favoriteRecyclerview.adapter = adapter
-
         })
+
     }
 }
