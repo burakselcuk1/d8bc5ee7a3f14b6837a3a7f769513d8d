@@ -46,9 +46,9 @@ class StationAdapter(private val dataSet: ship) :
             val savedStation = shipItem(dataSet[position].capacity,dataSet[position].coordinateX,dataSet[position].coordinateY,
                 dataSet[position].name,dataSet[position].need,dataSet[position].stock)
 
-            bundle.putSerializable("station",savedStation)!!
+            bundle.putSerializable("station",savedStation)
             val navigationController = Navigation.findNavController(viewHolder.itemView)
-            navigationController.navigate(R.id.action_stationFragment_to_favoriteFragment,bundle!!)
+            navigationController.navigate(R.id.action_stationFragment_to_favoriteFragment,bundle)
            // Log.e("Brk:StationAdapter",savedStation.name)
         }
     }
