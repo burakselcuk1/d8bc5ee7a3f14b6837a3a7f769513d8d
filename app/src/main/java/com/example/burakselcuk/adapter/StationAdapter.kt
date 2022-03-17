@@ -50,7 +50,6 @@ class StationAdapter(private val dataSet: ship) :
 
         viewHolder.itemView.saveShipToFavorite.setOnClickListener {
             val bundle = Bundle()
-
             val savedStation = shipItem(dataSet[position].capacity,dataSet[position].coordinateX,dataSet[position].coordinateY,
                 dataSet[position].name,dataSet[position].need,dataSet[position].stock)
 
