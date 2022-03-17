@@ -32,5 +32,4 @@ class FavoriteAdapter(private val dataSet: ArrayList<shipItem>) :
     }
 
     override fun getItemCount() = dataSet.size
-
 }
