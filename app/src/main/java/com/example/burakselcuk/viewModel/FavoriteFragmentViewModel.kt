@@ -18,4 +18,8 @@ class FavoriteFragmentViewModel @Inject constructor(private val repository: Favo
     fun addStation(station: shipItem)=viewModelScope.launch {
         repository.insertStation(station)
     }
+
+    fun deleteStation(station: shipItem)=viewModelScope.launch {
+        repository.deleteStation(station)
+    }
 }
