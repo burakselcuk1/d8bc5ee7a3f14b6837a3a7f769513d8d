@@ -49,7 +49,7 @@ class StationAdapter(private val dataSet: ship) :
             bundle.putSerializable("station",savedStation)!!
             val navigationController = Navigation.findNavController(viewHolder.itemView)
             navigationController.navigate(R.id.action_stationFragment_to_favoriteFragment,bundle!!)
-            Log.e("Brk:StationAdapter",savedStation.name)
+           // Log.e("Brk:StationAdapter",savedStation.name)
         }
     }
     override fun getItemCount() = dataSet.size
