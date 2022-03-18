@@ -16,10 +16,7 @@ class FavoriteFragmentViewModel @Inject constructor(private val repository: Favo
 
     val readAllData: LiveData<List<shipItem>> = repository.readAllData
 
-
     fun addStation(station: shipItem)=viewModelScope.launch {
         repository.insertStation(station)
     }
-
-
 }

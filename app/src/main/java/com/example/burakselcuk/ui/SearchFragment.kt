@@ -20,7 +20,6 @@ class SearchFragment : Fragment() {
 
     private lateinit var searchAdapter:SearchAdapter
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,13 +45,9 @@ class SearchFragment : Fragment() {
                 sample_recyclerView.visibility = View.VISIBLE
 
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
             }
         })
-
-
     }
     //for search
     fun filter(text: String) {
@@ -68,9 +63,7 @@ class SearchFragment : Fragment() {
                 sample_recyclerView.visibility= View.VISIBLE
             }
         }
-
         //calling a method of the adapter class and passing the filtered list
         searchAdapter.filterList(filteredCourseAry);
-
     }
 }

@@ -24,7 +24,6 @@ class SavedStationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_saved_station, container, false)
     }
 
@@ -46,7 +45,6 @@ class SavedStationFragment : Fragment() {
                     singleStationDataForDelete.stock)
 
                 savedStationName.text = deleteStation.name
-
                 deleteStationFromRoom.setOnClickListener {
 
                     val builder = AlertDialog.Builder(requireContext())
@@ -56,22 +54,17 @@ class SavedStationFragment : Fragment() {
                         navigationController.navigate(R.id.action_savedStationFragment_to_favoriteFragment)
                         Toast.makeText(requireContext(),"Station deleted!", Toast.LENGTH_SHORT).show()
 
-
                     }
                     builder.setNegativeButton("No"){_, _ ->}
                     builder.setTitle("Delete ${deleteStation.name}")
                     builder.setMessage("Are you sure delete this station ${deleteStation.name} ?")
                     builder.create().show()
-
-
-
                 }
 
             }else {
                 Toast.makeText(requireContext(),"error", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
-    }
+}
 

@@ -18,7 +18,6 @@ class StationFragmentViewModel @Inject constructor(private val repository: shipR
     init {
         getShipes()
     }
-
     private fun getShipes()=viewModelScope.launch {
         repository.getShipes().let { response ->
         if (response.isSuccessful){

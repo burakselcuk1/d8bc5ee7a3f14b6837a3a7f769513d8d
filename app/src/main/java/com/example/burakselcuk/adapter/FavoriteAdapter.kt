@@ -20,19 +20,16 @@ class FavoriteAdapter(private val dataSet: ArrayList<shipItem>) :
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
-
         init {
             textView = view.findViewById(R.id.roomStationName)
         }
     }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.room_item, viewGroup, false)
 
         return ViewHolder(view)
     }
-
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.textView.text = dataSet[position].name
         viewHolder.itemView.starForDelete.setOnClickListener {
@@ -46,8 +43,6 @@ class FavoriteAdapter(private val dataSet: ArrayList<shipItem>) :
             navigationController.navigate(R.id.action_favoriteFragment_to_savedStationFragment,bundle)
 
         }
-
     }
-
     override fun getItemCount() = dataSet.size
 }

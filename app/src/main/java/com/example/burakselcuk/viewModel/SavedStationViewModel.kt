@@ -12,10 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SavedStationViewModel @Inject constructor(private val repository: FavoriteStationRepository):ViewModel() {
 
-    val _station = MutableLiveData<shipItem>()
-
     fun deleteStation(station: shipItem)=viewModelScope.launch {
         repository.deleteStation(station)
     }
-
 }

@@ -29,8 +29,6 @@ class FavoriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
 
@@ -38,7 +36,6 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(requireActivity()).get(FavoriteFragmentViewModel::class.java)
-
         val args = this.arguments
 
         if (args?.get("station")!=null){
@@ -53,24 +50,14 @@ class FavoriteFragment : Fragment() {
                 singleStationData.stock)
 
                 viewModel.addStation(saveStation)
-
-
             }else {
                 Toast.makeText(requireContext(),"error",Toast.LENGTH_SHORT).show()
             }
         }
-
         viewModel.readAllData.observe(this, Observer {
             favoriteRecyclerview.layoutManager = LinearLayoutManager(context)
             adapter = FavoriteAdapter(it as ArrayList<shipItem>)
             favoriteRecyclerview.adapter = adapter
         })
-
-
-
-
-
     }
-
-
 }
