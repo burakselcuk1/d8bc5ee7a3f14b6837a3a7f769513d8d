@@ -47,5 +47,16 @@ class StationFragment : Fragment() {
             val navigationController = Navigation.findNavController(it)
             navigationController.navigate(R.id.action_stationFragment_to_searchFragment)
         }
+
+        swipeResflesh.setOnRefreshListener {
+            shipRecyclerView.visibility = View.GONE
+            viewModel._shipes.observe(this, Observer {
+                adapter = StationAdapter(it)
+                shipRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+                shipRecyclerView.adapter = adapter
+            })
+            shipRecyclerView.visibility = View.VISIBLE
+            swipeResflesh.isRefreshing = false
+        }
 }
 }
