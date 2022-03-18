@@ -1,5 +1,6 @@
 package com.example.burakselcuk.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.burakselcuk.R
 import com.example.burakselcuk.adapter.FavoriteAdapter
@@ -21,13 +23,13 @@ class FavoriteFragment : Fragment() {
 
     private lateinit var viewModel: FavoriteFragmentViewModel
     private lateinit var singleStationData: shipItem
-    private lateinit var singleStationDataForDelete: shipItem
     private lateinit var adapter:FavoriteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
@@ -64,5 +66,11 @@ class FavoriteFragment : Fragment() {
             favoriteRecyclerview.adapter = adapter
         })
 
+
+
+
+
     }
+
+
 }

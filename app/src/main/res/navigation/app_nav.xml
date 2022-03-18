@@ -23,12 +23,21 @@
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
-            android:id="@+id/action_favoriteFragment_to_stationFragment"
-            app:destination="@id/stationFragment" />
+            android:id="@+id/action_favoriteFragment_to_savedStationFragment"
+            app:destination="@id/savedStationFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.burakselcuk.ui.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/savedStationFragment"
+        android:name="com.example.burakselcuk.ui.SavedStationFragment"
+        android:label="fragment_saved_station"
+        tools:layout="@layout/fragment_saved_station" >
+        <action
+            android:id="@+id/action_savedStationFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
 </navigation>
