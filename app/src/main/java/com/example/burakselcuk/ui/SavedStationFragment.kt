@@ -51,7 +51,7 @@ class SavedStationFragment : Fragment() {
                     builder.setPositiveButton("Yes"){_, _ ->
                         viewModel.deleteStation(deleteStation)
                         val navigationController = Navigation.findNavController(it)
-                        navigationController.navigate(R.id.action_savedStationFragment_to_favoriteFragment)
+                        navigationController.navigate(R.id.action_savedStationFragment_to_stationFragment)
                         Toast.makeText(requireContext(),"Station deleted!", Toast.LENGTH_SHORT).show()
 
                     }
