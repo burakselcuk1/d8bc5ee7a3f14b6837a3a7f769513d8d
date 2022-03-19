@@ -2,6 +2,7 @@ package com.example.burakselcuk.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -19,12 +20,22 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
 
+        //Check parametres for null or not
         git.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
 
+            if(dayaniklilik.text.toString().trim().isEmpty()){
+                Snackbar.make(it, "Dayanıklılık boş olamaz", Snackbar.LENGTH_SHORT).show()
+            }
+            else if(hız.text.toString().trim().isEmpty()){
+                Snackbar.make(it, "Hız boş olamaz", Snackbar.LENGTH_SHORT).show()
+            }
+            else if(kapasite.text.toString().trim().isEmpty()){
+                Snackbar.make(it, "Kapasite boş olamaz", Snackbar.LENGTH_SHORT).show()
+            }
+            else{
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+            }
         }
-
     }
-
 }
