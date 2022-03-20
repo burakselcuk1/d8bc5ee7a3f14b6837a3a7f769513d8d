@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.room_item.view.*
 class FavoriteAdapter(private val dataSet: ArrayList<shipItem>) :
     RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
-
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
         init {
@@ -33,6 +32,7 @@ class FavoriteAdapter(private val dataSet: ArrayList<shipItem>) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.textView.text = dataSet[position].name
         viewHolder.itemView.starForDelete.setOnClickListener {
+
             val bundle = Bundle()
 
             val savedStationforDelete = shipItem(dataSet[position].capacity,dataSet[position].coordinateX,dataSet[position].coordinateY,
@@ -41,7 +41,6 @@ class FavoriteAdapter(private val dataSet: ArrayList<shipItem>) :
 
             val navigationController = Navigation.findNavController(viewHolder.itemView)
             navigationController.navigate(R.id.action_favoriteFragment_to_savedStationFragment,bundle)
-
         }
     }
     override fun getItemCount() = dataSet.size

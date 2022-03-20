@@ -33,6 +33,7 @@ class SavedStationFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity()).get(SavedStationViewModel::class.java)
         val argsTwo = this.arguments
 
+        //Get Bundle value and equal to deleteStation val
         if (argsTwo?.get("stationForDelete")!=null){
             if (requireArguments().getSerializable("stationForDelete") != null) {
                 singleStationDataForDelete = requireArguments().getSerializable("stationForDelete")!! as shipItem
@@ -45,22 +46,21 @@ class SavedStationFragment : Fragment() {
                     singleStationDataForDelete.stock)
 
                 savedStationName.text = deleteStation.name
-                deleteStationFromRoom.setOnClickListener {
 
+                //Alert dialog
+                deleteStationFromRoom.setOnClickListener {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setPositiveButton("Yes"){_, _ ->
                         viewModel.deleteStation(deleteStation)
                         val navigationController = Navigation.findNavController(it)
                         navigationController.navigate(R.id.action_savedStationFragment_to_stationFragment)
                         Toast.makeText(requireContext(),"Station deleted!", Toast.LENGTH_SHORT).show()
-
                     }
                     builder.setNegativeButton("No"){_, _ ->}
                     builder.setTitle("Delete ${deleteStation.name}")
                     builder.setMessage("Are you sure delete this station ${deleteStation.name} ?")
                     builder.create().show()
                 }
-
             }else {
                 Toast.makeText(requireContext(),"error", Toast.LENGTH_SHORT).show()
             }

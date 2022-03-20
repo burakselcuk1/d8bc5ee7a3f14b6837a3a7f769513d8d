@@ -36,8 +36,10 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(requireActivity()).get(FavoriteFragmentViewModel::class.java)
+
         val args = this.arguments
 
+        //Get bundle value
         if (args?.get("station")!=null){
             if (requireArguments().getSerializable("station") != null) {
                 singleStationData = requireArguments().getSerializable("station")!! as shipItem
@@ -54,6 +56,7 @@ class FavoriteFragment : Fragment() {
                 Toast.makeText(requireContext(),"error",Toast.LENGTH_SHORT).show()
             }
         }
+        //Read all data
         viewModel.readAllData.observe(this, Observer {
             favoriteRecyclerview.layoutManager = LinearLayoutManager(context)
             adapter = FavoriteAdapter(it as ArrayList<shipItem>)

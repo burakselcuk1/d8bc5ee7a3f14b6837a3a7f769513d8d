@@ -40,10 +40,8 @@ class SearchFragment : Fragment() {
                 filter(p0.toString())
                 sample_recyclerView.visibility = View.VISIBLE
             }
-
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 sample_recyclerView.visibility = View.VISIBLE
-
             }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -59,7 +57,6 @@ class SearchFragment : Fragment() {
         for (eachCourse in courseAry) {
             if (eachCourse.name!!.toLowerCase().contains(text.toLowerCase()) || eachCourse.name!!.toLowerCase().contains(text.toLowerCase())) {
                 filteredCourseAry.add(eachCourse)
-
                 sample_recyclerView.visibility= View.VISIBLE
             }
         }

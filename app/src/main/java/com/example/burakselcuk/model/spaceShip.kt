@@ -1,7 +1,9 @@
 package com.example.burakselcuk.model
 
+import java.io.Serializable
+
 data class spaceShip(
-    var hiz:Int,
-    var dayaniklilik:Int,
-    var kapasite:Int
-)
+    var hiz:String,
+    var dayaniklilik:String,
+    var kapasite:String
+):Serializable
